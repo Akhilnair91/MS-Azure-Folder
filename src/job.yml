@@ -7,7 +7,7 @@ inputs:
   training_data: azureml://subscriptions/c32b3936-2faf-4d97-9c79-7c937acfc324/resourcegroups/azurecertification/workspaces/AzureCertification-Dev/datastores/workspaceblobstore/paths/azure-certification-ml/
     type: uri_folder 
     path: azureml:diabetes-dev-folder@latest
-  reg_rate: 0.02
+  reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:azure-ml-dev
 experiment_name: diabetes-data-practical
