@@ -21,7 +21,11 @@ jobs:
           
       - name: Run Experiment in Development
         run: |
-          az ml job create --file job-dev.yml --stream
+              az extension add --name ml --yes
+              az ml job create --file job-dev.yml --stream \
+                  --resource-group azurecertification \
+                  --workspace-name AzureCertification-Dev
+
 
   production:
     name: Train in Production
@@ -39,4 +43,7 @@ jobs:
 
       - name: Run Training in Production
         run: |
-          az ml job create --file job-prod.yml --stream
+            az extension add --name ml --yes
+            az ml job create --file job-dev.yml --stream \
+                --resource-group azurecertification \
+                --workspace-name AzureCertification-Dev
