@@ -1,0 +1,18 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+name: diabetes-prod-training
+experiment_name: diabetes-experiment-prod
+compute: azureml:AzureCertification-Dev
+
+inputs:
+  training_data:
+    type: uri_folder
+    path: azureml:diabetes-prod-folder@latest  # Uses the production dataset
+  reg_rate: 0.01
+
+command: >-
+  python train.py
+  --training_data ${{inputs.training_data}}
+  --reg_rate ${{inputs.reg_rate}}
+
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+description: Training job in production environment
